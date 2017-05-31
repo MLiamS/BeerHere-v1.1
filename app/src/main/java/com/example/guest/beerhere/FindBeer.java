@@ -36,7 +36,7 @@ public class FindBeer extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView <?> adapterView, View view,int i, long l){
                 String Beers = ((TextView) view).getText().toString();
-                Toast.makeText(FindBeer.this, Beers, Toast.LENGTH_SHORT).show();
+                Toast.makeText(FindBeer.this, Beers, Toast.LENGTH_SHORT).show(); //Item on click toast, will be changed to something functional in the future.
             }
         });
 
