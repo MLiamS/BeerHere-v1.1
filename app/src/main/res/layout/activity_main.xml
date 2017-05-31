@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context="com.example.guest.beerhere.MainActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/backgroundImage"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <Button
         android:id="@+id/aboutButton"
         android:layout_width="wrap_content"
@@ -28,17 +37,28 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="57dp"
         android:text="Beer Here!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.542"
-        android:id="@+id/title"
-        android:layout_below="@+id/button5"
+        app:layout_constraintVertical_bias="0.542" />
+
+    <EditText
+        android:id="@+id/editTextLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/findBeerButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="57dp" />
+        android:layout_marginBottom="105dp"
+        android:hint="Enter Zip Code"
+        android:ems="10"
+        android:inputType="number" />
 
 </RelativeLayout>
