@@ -23,6 +23,9 @@ public class FindBeer extends AppCompatActivity{
             "Pilsner", "Stout", "Pilsner", "Porter",
             "Bock", "Weissbier", "Lambic", "Kölsch",
             "Malt Liquor"};
+    private String[] Ratings = new String[] {"3", "9", "9", "1", "8", "1",
+            "7", "8", "4", "10",
+            "1"}; //  This array represents a 1 - 10 rating of how much i like the beer style, this should be interactive in the final build.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,7 @@ public class FindBeer extends AppCompatActivity{
         setContentView(R.layout.activity_find_beer);
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_activated_1, Beers);  // Creates a new arrayadapter named adapter
+        RatingAdapter adapter = new RatingAdapter(this, android.R.layout.simple_list_item_activated_1, Beers, Ratings);  // Creates a new arrayadapter named adapter
         beerList.setAdapter(adapter);  // Feeds the beerList listView on the layout the array
 
         beerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
