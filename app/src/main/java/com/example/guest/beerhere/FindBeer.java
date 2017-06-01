@@ -12,12 +12,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class FindBeer extends AppCompatActivity{
     @Bind(R.id.locationTextView) TextView locationText; //  This is the text view at the top of the screen, will be changed once we can make API calls.
     @Bind(R.id.listView) ListView beerList;
+
+    public static final String TAG = FindBeer.class.getSimpleName();
 
     private String[] Beers = new String[] {"Ale", "Lager",  //  This array is a placeholder for now, not sure if we will query the api by beer type, not sure where this little app is headed just yet
             "Pilsner", "Stout", "Pilsner", "Porter",
@@ -38,7 +45,7 @@ public class FindBeer extends AppCompatActivity{
 
         beerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView <?> adapterView, View view,int i, long l){
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String Beers = ((TextView) view).getText().toString();
                 Toast.makeText(FindBeer.this, Beers, Toast.LENGTH_SHORT).show(); //Item onClick toast, will be changed to something functional in the future;
             }
@@ -49,7 +56,30 @@ public class FindBeer extends AppCompatActivity{
         String location = intent.getStringExtra("zip");// creates a new string to put in the message.
         locationText.setText("Here are the closest places in " + location + " to get a beer...");
 
+        findBreweries(location);
     }
+        private void findBreweries(String location) {
+            final BDBService BDBService = new BDBService();
+            BDBService.findBreweries(location, new Callback() {
+
+                @Override
+                public void onFailure(Call call, IOException e) {
+                    e.printStackTrace();
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    try {
+                        String jsonData = response.body().string();
+                        Log.v(TAG, jsonData);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            });
+        }
+
 
 
 }
