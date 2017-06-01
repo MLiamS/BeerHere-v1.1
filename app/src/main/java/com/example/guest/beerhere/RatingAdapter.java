@@ -23,7 +23,7 @@ public class RatingAdapter extends ArrayAdapter {
     public Object getItem(int position) {
         String beer = Beers[position];
         String rating = Ratings[position];
-        return String.format("%s \n Rating:%s/10", beer, rating);
+        return String.format("%s \nRating:%s/10", beer, rating);
     }
 
     @Override

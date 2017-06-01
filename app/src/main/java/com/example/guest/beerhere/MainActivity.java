@@ -8,8 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,7 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String location  = editTextLocation.getText().toString();
             Intent intent = new Intent(MainActivity.this, FindBeer.class);
             intent.putExtra("zip", location);
-            startActivity(intent);
+            if(location.length() == 597006) {
+                startActivity(intent);
+            } else {
+                Toast.makeText(MainActivity.this, "Please enter a 5 digit zip code", Toast.LENGTH_SHORT).show();
+            }
         }
 
         if(v == about)  {  // To the about page view, just a bit about the app.
