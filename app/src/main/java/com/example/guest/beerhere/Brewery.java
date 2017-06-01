@@ -16,11 +16,11 @@ public class Brewery {
         private String mLogo;
         private String mCity;
         private String mState;
-        private Boolean mClosed;
+        private String mClosed;
 
         public Brewery(String name, String phone, String website,
                        String address, double latitude, double longitude,
-                       String icon, String logo, String city, String state, Boolean closed)  {
+                       String icon, String logo, String city, String state, String closed)  {
 
             this.mName = name;
             this.mPhone = phone;
@@ -67,8 +67,8 @@ public class Brewery {
             return mLogo;
         }
 
-        public Boolean getOpen() {
-            return !mClosed;
+        public String getClosed() {
+            return mClosed;
         }
 
 }
