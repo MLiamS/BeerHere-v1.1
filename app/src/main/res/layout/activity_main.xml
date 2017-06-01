@@ -57,4 +57,13 @@
         android:ems="10"
         android:inputType="number" />
 
+    <Button
+        android:id="@+id/bioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/title"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/title"
+        android:text="Bio" />
+
 </RelativeLayout>

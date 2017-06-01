@@ -3,6 +3,7 @@ package com.example.guest.beerhere;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -36,7 +37,7 @@ public class FindBeer extends AppCompatActivity{
             @Override
             public void onItemClick(AdapterView <?> adapterView, View view,int i, long l){
                 String Beers = ((TextView) view).getText().toString();
-                Toast.makeText(FindBeer.this, Beers, Toast.LENGTH_SHORT).show(); //Item on click toast, will be changed to something functional in the future.
+                Toast.makeText(FindBeer.this, Beers, Toast.LENGTH_SHORT).show(); //Item onClick toast, will be changed to something functional in the future;
             }
         });
 
