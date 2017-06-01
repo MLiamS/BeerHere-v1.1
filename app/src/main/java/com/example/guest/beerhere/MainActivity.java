@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String location  = editTextLocation.getText().toString();
             Intent intent = new Intent(MainActivity.this, FindBeer.class);
             intent.putExtra("zip", location);
-            if(location.length() == 597006) {
+            if(location.length() == 5) {
                 startActivity(intent);
             } else {
                 Toast.makeText(MainActivity.this, "Please enter a 5 digit zip code", Toast.LENGTH_SHORT).show();
