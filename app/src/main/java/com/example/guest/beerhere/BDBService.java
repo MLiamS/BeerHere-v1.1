@@ -50,12 +50,15 @@ public class BDBService {
             try {
                 String jsonData = response.body().string();
                 if (response.isSuccessful()) {
-                    JSONObject bdbJSON = new JSONObject(jsonData);
-                    JSONArray dataJSON = bdbJSON.getJSONArray("data");
+                    System.out.println("Spelling is fun");
+                    JSONObject fuck = new JSONObject(jsonData);
+                    System.out.println("Spelling iS not fun");
+                    JSONArray dataJSON = fuck.getJSONArray("data");
+
                     for (int i = 0; i < dataJSON.length(); i++) {
                         JSONObject breweryJSON = dataJSON.getJSONObject(i);
-
                         String name = breweryJSON.getJSONObject("brewery").getString("name");
+                        System.out.println(name);
                         String phone = breweryJSON.optString("phone", "Phone not available");
                         String website = breweryJSON.getJSONObject("brewery").getString("website");
                         String address = breweryJSON.getString("streetAddress");
@@ -72,7 +75,8 @@ public class BDBService {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
-            } catch (JSONException e) {
+            }
+            catch (JSONException e) {
                 e.printStackTrace();
             }
             return breweries;

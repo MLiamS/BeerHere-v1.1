@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +24,8 @@ import okhttp3.Response;
 public class FindBeer extends AppCompatActivity{
     @Bind(R.id.locationTextView) TextView locationText; //  This is the text view at the top of the screen, will be changed once we can make API calls.
     @Bind(R.id.listView) ListView beerList;
+
+    public ArrayList<Brewery> mBreweries = new ArrayList<>();
 
     public static final String TAG = FindBeer.class.getSimpleName();
 
@@ -71,7 +74,12 @@ public class FindBeer extends AppCompatActivity{
                 public void onResponse(Call call, Response response) throws IOException {
                     try {
                         String jsonData = response.body().string();
-                        Log.v(TAG, jsonData);
+                        if (response.isSuccessful()){
+                            Log.v(TAG, jsonData);
+                            mBreweries = BDBService.processResults(response);
+                            Log.v(TAG, "got past processResults");
+                        }
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
