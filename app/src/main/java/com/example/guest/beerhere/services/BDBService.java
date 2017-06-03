@@ -1,7 +1,10 @@
-package com.example.guest.beerhere;
+package com.example.guest.beerhere.services;
 
 
 import android.util.Log;
+
+import com.example.guest.beerhere.Constants;
+import com.example.guest.beerhere.Models.Brewery;
 
 import org.json.JSONArray;
 import org.json.JSONException;

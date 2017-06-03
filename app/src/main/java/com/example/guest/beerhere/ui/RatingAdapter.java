@@ -1,4 +1,4 @@
-package com.example.guest.beerhere;
+package com.example.guest.beerhere.ui;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

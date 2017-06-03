@@ -1,7 +1,9 @@
-package com.example.guest.beerhere;
+package com.example.guest.beerhere.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.guest.beerhere.R;
 
 public class Bio extends AppCompatActivity {
 

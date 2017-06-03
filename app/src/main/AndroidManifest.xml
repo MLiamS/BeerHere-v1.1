@@ -17,9 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AboutActivity" />
+        <activity android:name=".ui.AboutActivity" />
         <activity android:name=".FindBeer" />
-        <activity android:name=".Bio"></activity>
+        <activity android:name=".ui.Bio"></activity>
     </application>
 
 </manifest>

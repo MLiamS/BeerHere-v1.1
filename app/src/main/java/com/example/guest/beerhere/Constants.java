@@ -1,5 +1,7 @@
 package com.example.guest.beerhere;
 
+import com.example.guest.beerhere.BuildConfig;
+
 /**
  * Created by Guest on 6/1/17.
  */
