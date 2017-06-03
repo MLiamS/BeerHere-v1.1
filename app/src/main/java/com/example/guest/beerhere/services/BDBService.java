@@ -53,10 +53,8 @@ public class BDBService {
             try {
                 String jsonData = response.body().string();
                 if (response.isSuccessful()) {
-                    System.out.println("Before new JSONObject");
-                    JSONObject fuck = new JSONObject(jsonData);
-                    System.out.println("After new JSONObject");
-                    JSONArray dataJSON = fuck.getJSONArray("data");
+                    JSONObject nan = new JSONObject(jsonData);
+                    JSONArray dataJSON = nan.getJSONArray("data");
 
                     for (int i = 0; i < dataJSON.length(); i++) {
                         JSONObject breweryJSON = dataJSON.getJSONObject(i);

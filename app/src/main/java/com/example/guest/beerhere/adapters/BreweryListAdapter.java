@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.guest.beerhere.Models.Brewery;
 import com.example.guest.beerhere.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class BreweryListAdapter extends RecyclerView.Adapter<BreweryListAdapter.
         }
 
         public void bindBrewery(Brewery brewery) {
+            Picasso.with(mContext).load(brewery.getLogo()).into(mBreweryImageView);
             mNameTextView.setText(brewery.getName());
 
         }
