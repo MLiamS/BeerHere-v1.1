@@ -21,19 +21,21 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class FindBeer extends AppCompatActivity{
-    @Bind(R.id.locationTextView) TextView locationText; //  This is the text view at the top of the screen, will be changed once we can make API calls.
-    @Bind(R.id.listView) ListView beerList;
+public class FindBeer extends AppCompatActivity {
+    @Bind(R.id.locationTextView)
+    TextView locationText; //  This is the text view at the top of the screen, will be changed once we can make API calls.
+    @Bind(R.id.listView)
+    ListView beerList;
 
     public ArrayList<Brewery> mBreweries = new ArrayList<>();
 
     public static final String TAG = FindBeer.class.getSimpleName();
 
-    private String[] Beers = new String[] {"Ale", "Lager",  //  This array is a placeholder for now, not sure if we will query the api by beer type, not sure where this little app is headed just yet
+    private String[] Beers = new String[]{"Ale", "Lager",  //  This array is a placeholder for now, not sure if we will query the api by beer type, not sure where this little app is headed just yet
             "Pilsner", "Stout", "Pilsner", "Porter",
             "Bock", "Weissbier", "Lambic", "Kölsch",
             "Malt Liquor"};
-    private String[] Ratings = new String[] {"3", "9", "9", "1", "8", "1",
+    private String[] Ratings = new String[]{"3", "9", "9", "1", "8", "1",
             "7", "8", "4", "10",
             "1"}; //  This array represents a 1 - 10 rating of how much i like the beer style, this should be interactive in the final build.
 
@@ -61,33 +63,40 @@ public class FindBeer extends AppCompatActivity{
 
         findBreweries(location);
     }
-        private void findBreweries(String location) {
-            final BDBService BDBService = new BDBService();
-            BDBService.findBreweries(location, new Callback() {
 
-                @Override
-                public void onFailure(Call call, IOException e) {
-                    e.printStackTrace();
-                }
+    private void findBreweries(String location) {
+        final BDBService BDBService = new BDBService();
+        BDBService.findBreweries(location, new Callback() {
 
-                @Override
-                public void onResponse(Call call, Response response) throws IOException {
-                    try {
-                        String jsonData = response.body().string();
-                        if (response.isSuccessful()){
-                            Log.v(TAG, jsonData);
-                            mBreweries = BDBService.processResults(response);
-                            Log.v(TAG, "got past processResults");
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                mBreweries = BDBService.processResults(response);
+
+                FindBeer.this.runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        String[] breweryNames = new String[mBreweries.size()];
+                        for (int i = 0; i < breweryNames.length; i++) {
+                            breweryNames[i] = mBreweries.get(i).getName();
                         }
 
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                        ArrayAdapter adapter = new ArrayAdapter(FindBeer.this,
+                                android.R.layout.simple_list_item_1, breweryNames);
+                        beerList.setAdapter(adapter);
                     }
-                }
-
-            });
-        }
-
-
-
+                });
+            }
+        });
+    }
 }
+
+
+
+
+
