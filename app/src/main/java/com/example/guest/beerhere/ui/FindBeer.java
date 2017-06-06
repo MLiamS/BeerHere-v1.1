@@ -1,21 +1,17 @@
-package com.example.guest.beerhere;
+package com.example.guest.beerhere.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.guest.beerhere.Models.Brewery;
+import com.example.guest.beerhere.R;
 import com.example.guest.beerhere.adapters.BreweryListAdapter;
 import com.example.guest.beerhere.services.BDBService;
-import com.example.guest.beerhere.ui.RatingAdapter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,7 +42,7 @@ public class FindBeer extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();  //  Gets the string from the user from the main activity intent.
-        String location = intent.getStringExtra("zip");// creates a new string to put in the message.
+        String location = intent.getStringExtra("zip");// creates a new string to put in the message, and use as the argument for find breweries.
 
         locationText.setText("Here are the closest places in " + location + " to get a beer...");
 

@@ -1,4 +1,4 @@
-package com.example.guest.beerhere;
+package com.example.guest.beerhere.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -10,8 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.guest.beerhere.ui.AboutActivity;
-import com.example.guest.beerhere.ui.Bio;
+import com.example.guest.beerhere.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
