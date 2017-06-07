@@ -1,10 +1,13 @@
 package com.example.guest.beerhere.Models;
 
 
+import org.parceler.Parcel;
+
 /**
  * Created by Guest on 6/1/17.
  */
 
+@Parcel
 public class Brewery {
         private String mName;
         private String mPhone;

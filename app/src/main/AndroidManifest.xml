@@ -20,6 +20,8 @@
         <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.FindBeer" />
         <activity android:name=".ui.Bio"></activity>
+        <activity android:name=".ui.BreweryDetailActivity"></activity>
+
     </application>
 
 </manifest>
