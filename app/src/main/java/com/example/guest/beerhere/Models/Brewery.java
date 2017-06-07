@@ -18,6 +18,8 @@ public class Brewery {
         private String mState;
         private String mClosed;
 
+        public Brewery() {}
+
         public Brewery(String name, String phone, String website,
                        String address, double latitude, double longitude,
                        String icon, String logo, String city, String state, String closed)  {
