@@ -2,8 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.guest.beerhere">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,8 +19,7 @@
         </activity>
         <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.FindBeer" />
-        <activity android:name=".ui.Bio" />
-        <activity android:name=".ui.BreweryDetailActivity"></activity>
+        <activity android:name=".ui.Bio"></activity>
     </application>
 
 </manifest>
