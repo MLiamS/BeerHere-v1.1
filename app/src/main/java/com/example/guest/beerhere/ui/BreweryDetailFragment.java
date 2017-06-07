@@ -1,6 +1,7 @@
 package com.example.guest.beerhere.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -19,11 +20,13 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class BreweryDetailFragment extends Fragment {
+public class BreweryDetailFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.breweryImageView) ImageView mImageLabel;
     @Bind(R.id.breweryNameTextView) TextView mNameLabel;
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
+    @Bind(R.id.websiteTextView) TextView mWebsite;
+
 
     private Brewery mBrewery;
 
@@ -39,6 +42,8 @@ public class BreweryDetailFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBrewery = Parcels.unwrap(getArguments().getParcelable("brewery"));
+
+
     }
 
     @Override
@@ -51,7 +56,35 @@ public class BreweryDetailFragment extends Fragment {
         mNameLabel.setText(mBrewery.getName());
         mPhoneLabel.setText(mBrewery.getPhone());
         mAddressLabel.setText(mBrewery.getAddress());
+        mWebsite.setText(mBrewery.getWebsite());
+
+        mWebsite.setOnClickListener(this);
+        mPhoneLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+
 
         return view;
+
     }
-}
+
+        @Override
+        public void onClick(View v) {
+            if (v == mWebsite) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(mBrewery.getWebsite()));
+                startActivity(webIntent);
+            }
+            if (v == mPhoneLabel) {
+                Intent phoneIntent = new Intent(Intent.ACTION_DIAL,
+                        Uri.parse("tel:" + mBrewery.getPhone()));
+                startActivity(phoneIntent);
+            }
+            if (v == mAddressLabel) {
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("geo:" + mBrewery.getLatitude()
+                                + "," + mBrewery.getLongitude()
+                                + "?q=(" + mBrewery.getName() + ")"));
+                startActivity(mapIntent);
+            }
+        }
+    }
