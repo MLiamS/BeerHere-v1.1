@@ -10,9 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.guest.beerhere.Constants;
 import com.example.guest.beerhere.Models.Brewery;
 import com.example.guest.beerhere.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -26,6 +30,8 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
     @Bind(R.id.phoneTextView) TextView mPhoneLabel;
     @Bind(R.id.addressTextView) TextView mAddressLabel;
     @Bind(R.id.websiteTextView) TextView mWebsite;
+    @Bind(R.id.saveTextView) TextView mSaveRestaurantButton;
+
 
 
     private Brewery mBrewery;
@@ -61,6 +67,7 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
         mWebsite.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
+        mSaveRestaurantButton.setOnClickListener(this);
 
 
         return view;
@@ -85,6 +92,13 @@ public class BreweryDetailFragment extends Fragment implements View.OnClickListe
                                 + "," + mBrewery.getLongitude()
                                 + "?q=(" + mBrewery.getName() + ")"));
                 startActivity(mapIntent);
+            }
+            if (v == mSaveRestaurantButton) {
+                DatabaseReference restaurantRef = FirebaseDatabase
+                        .getInstance()
+                        .getReference(Constants.FIREBASE_CHILD_BREWERIES);
+                restaurantRef.push().setValue(mBrewery);
+                Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
             }
         }
     }
