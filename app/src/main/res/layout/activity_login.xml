@@ -55,6 +55,7 @@
 
     <ImageButton
         android:id="@+id/passwordLoginButton"
+        android:background="@android:color/transparent"
         android:layout_width="249dp"
         android:layout_height="244dp"
         app:srcCompat="@drawable/login_button"
