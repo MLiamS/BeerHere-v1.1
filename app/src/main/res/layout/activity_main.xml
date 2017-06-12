@@ -52,7 +52,16 @@
         android:layout_height="wrap_content"
         android:text="Find Nearby Beer"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/aboutButton"
+        android:layout_alignStart="@+id/aboutButton" />
+    <Button
+        android:id="@+id/savedBreweriesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saved Breweries"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/bioButton"
+        android:layout_alignEnd="@+id/bioButton" />
 
     <TextView
         android:id="@+id/title"

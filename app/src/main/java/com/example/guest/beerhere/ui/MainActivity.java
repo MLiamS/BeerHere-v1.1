@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.editTextLocation) EditText editTextLocation;
     @Bind(R.id.title) TextView title;
     @Bind(R.id.bioButton) Button bio;
+    @Bind(R.id.savedBreweriesButton) Button savedBreweriesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findBeer.setOnClickListener(this);
         about.setOnClickListener(this);
         bio.setOnClickListener(this);
+        savedBreweriesButton.setOnClickListener(this);
+
     }
 
     @Override
@@ -101,6 +104,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (v == bio) {  // To the about page view, just a bit about the app.
             Intent intent = new Intent(MainActivity.this, Bio.class);
+            startActivity(intent);
+        }
+
+        if (v == savedBreweriesButton) {
+            Intent intent = new Intent(MainActivity.this, SavedBreweryListActivity.class);
             startActivity(intent);
         }
     }
