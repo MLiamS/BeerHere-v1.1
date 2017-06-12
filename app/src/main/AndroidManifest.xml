@@ -22,7 +22,8 @@
         <activity android:name=".ui.FindBeer" />
         <activity android:name=".ui.Bio" />
         <activity android:name=".ui.BreweryDetailActivity" />
-        <activity android:name=".ui.SavedBreweryListActivity"></activity>
+        <activity android:name=".ui.SavedBreweryListActivity" />
+        <activity android:name=".ui.CreateAccountActivity"></activity>
     </application>
 
 </manifest>
