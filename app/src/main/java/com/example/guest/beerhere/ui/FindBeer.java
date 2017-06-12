@@ -52,7 +52,7 @@ public class FindBeer extends AppCompatActivity {
         locationText.setText("Here are the closest places in " + location + " to get a beer...");
 
         findBreweries(location);
-        
+
     }
 
     private void findBreweries(String location) {
