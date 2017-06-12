@@ -28,9 +28,6 @@ import okhttp3.Response;
 
 public class FindBeer extends AppCompatActivity {
 
-    private SharedPreferences mSharedPreferences;
-    private String mRecentAddress;
-
     @Bind(R.id.locationTextView)
     TextView locationText; //  This is the text view at the top of the screen, will be changed once we can make API calls.
     @Bind(R.id.listView)
@@ -55,10 +52,7 @@ public class FindBeer extends AppCompatActivity {
         locationText.setText("Here are the closest places in " + location + " to get a beer...");
 
         findBreweries(location);
-
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_LOCATION_KEY, null);
-        Log.d("Shared Pref Location", mRecentAddress);
+        
     }
 
     private void findBreweries(String location) {
