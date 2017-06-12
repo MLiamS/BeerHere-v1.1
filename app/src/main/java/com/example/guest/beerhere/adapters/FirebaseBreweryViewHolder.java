@@ -50,7 +50,7 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
 
 
         Picasso.with(mContext)
-                .load(brewery.getIcon())
+                .load(brewery.getLogo())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
                 .into(breweryImageView);
