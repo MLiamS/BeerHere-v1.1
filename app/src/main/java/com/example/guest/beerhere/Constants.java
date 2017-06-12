@@ -12,5 +12,7 @@ public class Constants {
     public static final String YOUR_QUERY_PARAMETER = "postalCode";
     public static final String API_KEY_QUERY_PARAMETER = "key";
     public static final String PREFERENCES_LOCATION_KEY = "location";
+    public static final String FIREBASE_CHILD_SEARCHED_LOCATION = "searchedLocation";
+
 
 }
