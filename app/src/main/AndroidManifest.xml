@@ -23,7 +23,8 @@
         <activity android:name=".ui.Bio" />
         <activity android:name=".ui.BreweryDetailActivity" />
         <activity android:name=".ui.SavedBreweryListActivity" />
-        <activity android:name=".ui.CreateAccountActivity"></activity>
+        <activity android:name=".ui.CreateAccountActivity" />
+        <activity android:name=".ui.LoginActivity"></activity>
     </application>
 
 </manifest>
