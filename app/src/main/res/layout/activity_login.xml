@@ -32,7 +32,6 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
-        android:textAppearance="@android:style/TextAppearance.Material.Subhead.Inverse"
         android:textColor="@color/colorRed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
