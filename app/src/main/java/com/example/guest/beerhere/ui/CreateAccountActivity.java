@@ -162,7 +162,7 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
                 mAuthProgressDialog.dismiss();
 
                 if (task.isSuccessful()) {
-                    Toast.makeText(CreateAccountActivity.this, "Welcome to the world of Beer Heer, " + name,
+                    Toast.makeText(CreateAccountActivity.this, "Welcome to the world of Beer Here, " + name,
                             Toast.LENGTH_LONG).show();
                         createFirebaseUserProfile(task.getResult().getUser());
 
