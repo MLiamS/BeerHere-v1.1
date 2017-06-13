@@ -15,7 +15,8 @@
         <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.FindBeer" />
         <activity android:name=".ui.Bio" />
-        <activity android:name=".ui.BreweryDetailActivity" />
+        <activity android:name=".ui.BreweryDetailActivity" android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".ui.SavedBreweryListActivity" />
         <activity android:name=".ui.CreateAccountActivity" />
         <activity android:name=".ui.LoginActivity"><intent-filter>
