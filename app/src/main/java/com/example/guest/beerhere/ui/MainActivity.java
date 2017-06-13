@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.example.guest.beerhere.Constants;
 import com.example.guest.beerhere.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private DatabaseReference mSearchedLocationReference;
     private ValueEventListener mSearchedLocationReferenceListener;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
 
 
     @Bind(R.id.findBeerButton) Button findBeer;
@@ -45,6 +50,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
+
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Happy beer discovery, " + user.getDisplayName() + "!");
+                } else {
+
+                }
+            }
+        };
+
+        Typeface beerFont = Typeface.createFromAsset(getAssets(), "fonts/College Block.otf");
+        title.setTypeface(beerFont);
+
+
+
+        findBeer.setOnClickListener(this);
+        about.setOnClickListener(this);
+        bio.setOnClickListener(this);
+        savedBreweriesButton.setOnClickListener(this);
+
 
         mSearchedLocationReference = FirebaseDatabase
                 .getInstance()
@@ -67,21 +99,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+    }
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
 
-        Typeface beerFont = Typeface.createFromAsset(getAssets(), "fonts/College Block.otf");
-        title.setTypeface(beerFont);
-
-
-
-        findBeer.setOnClickListener(this);
-        about.setOnClickListener(this);
-        bio.setOnClickListener(this);
-        savedBreweriesButton.setOnClickListener(this);
-
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
     @Override
@@ -141,19 +172,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
+        protected void onDestroy() {
+            super.onDestroy();
+            mSearchedLocationReference.removeEventListener(mSearchedLocationReferenceListener);
     }
-    private void logout() {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-        finish();
+        private void logout() {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
     }
 
-    }
+
+}
 
 
 
