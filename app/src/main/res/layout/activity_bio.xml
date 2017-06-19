@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.guest.beerhere.ui.Bio">
+    android:background="@drawable/background">
+tools:context="com.example.guest.beerhere.ui.Bio">
     <TextView
         android:id="@+id/textViewBio1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/bio"
+        android:textColor="@color/colorRed"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:linksClickable="true"
         android:autoLink="web"
         app:layout_constraintRight_toRightOf="parent"
@@ -34,6 +38,7 @@
         android:layout_marginStart="16dp"
         app:layout_constraintRight_toLeftOf="@+id/emailButton"
         android:layout_marginLeft="16dp"
+        android:background="@android:color/transparent"
         app:layout_constraintLeft_toLeftOf="parent"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintBottom_creator="1"
@@ -45,6 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/email"
+        android:background="@android:color/transparent"
+
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         app:layout_constraintRight_toRightOf="parent"
@@ -57,6 +64,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/github"
+        android:background="@android:color/transparent"
+
         app:layout_constraintLeft_toRightOf="@+id/emailButton"
         android:layout_marginLeft="9dp"
         android:layout_marginRight="8dp"
