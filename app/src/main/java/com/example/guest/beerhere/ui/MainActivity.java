@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == findBeer) {  // To the find beer view, which will eventually display nearby beers once api functionality is in place.
             String location = editTextLocation.getText().toString();
 
-            saveLocationToFirebase(location); //calls the methog to save the location zip to firebase.
+            saveLocationToFirebase(location); //calls the method to save the location zip to firebase.
 
 
             Intent intent = new Intent(MainActivity.this, FindBeer.class);
