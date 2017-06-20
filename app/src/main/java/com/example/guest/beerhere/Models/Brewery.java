@@ -20,6 +20,7 @@ public class Brewery {
      String city;
      String state;
      String closed;
+    private String pushId;
 
     public Brewery() {}
 
@@ -74,6 +75,14 @@ public class Brewery {
 
     public String getClosed() {
         return closed;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 
