@@ -36,6 +36,7 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
 
     View mView;
     Context mContext;
+    public ImageView mBreweryImageView;
 
     public FirebaseBreweryViewHolder(View itemView) {
         super(itemView);
@@ -45,7 +46,7 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
     }
 
     public void bindBrewery(Brewery brewery) {
-        ImageView breweryImageView = (ImageView) mView.findViewById(R.id.breweryImageView);
+        mBreweryImageView = (ImageView) mView.findViewById(R.id.breweryImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.breweryNameTextView);
 
 
@@ -53,7 +54,7 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
                 .load(brewery.getLogo())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(breweryImageView);
+                .into(mBreweryImageView);
 
         nameTextView.setText(brewery.getName());
     }
