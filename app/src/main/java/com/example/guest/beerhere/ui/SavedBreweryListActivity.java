@@ -35,7 +35,7 @@ public class SavedBreweryListActivity extends AppCompatActivity {
 
     private void setUpFirebaseAdapter() {
         mFirebaseAdapter = new FirebaseRecyclerAdapter<Brewery, FirebaseBreweryViewHolder>
-                (Brewery.class, R.layout.brewery_list_item, FirebaseBreweryViewHolder.class,
+                (Brewery.class, R.layout.brewery_list_item_drag, FirebaseBreweryViewHolder.class,
                         mBreweryReference) {
 
             @Override
