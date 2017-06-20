@@ -83,7 +83,7 @@ public class SavedBreweryListActivity extends AppCompatActivity implements OnSta
                 Toast.makeText(SavedBreweryListActivity.this, "Rearrange the order of your favorite saved breweries by vertically dragging and dropping their icons on the left.", Toast.LENGTH_SHORT).show();
             }
             public void onFinish() {
-                Toast.makeText(SavedBreweryListActivity.this, "Alternatively, Delete breweries by swiping their name horizontally", Toast.LENGTH_LONG).show();
+                Toast.makeText(SavedBreweryListActivity.this, "Delete breweries by swiping their name horizontally", Toast.LENGTH_LONG).show();
             }
         }.start();
 
