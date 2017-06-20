@@ -52,6 +52,7 @@ public class SavedBreweryListActivity extends AppCompatActivity implements OnSta
                 R.layout.brewery_list_item_drag, FirebaseBreweryViewHolder.class,
                 mBreweryReference, this, this);
 
+
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
