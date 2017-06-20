@@ -16,8 +16,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class BreweryDetailActivity extends AppCompatActivity {
-    @Bind(R.id.viewPager)
-    ViewPager mViewPager;
+    @Bind(R.id.viewPager) ViewPager mViewPager;
     private BreweryPagerAdapter adapterViewPager;
     ArrayList<Brewery> mBreweries = new ArrayList<>();
 

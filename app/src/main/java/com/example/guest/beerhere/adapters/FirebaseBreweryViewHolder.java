@@ -42,7 +42,6 @@ public class FirebaseBreweryViewHolder extends RecyclerView.ViewHolder implement
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindBrewery(Brewery brewery) {

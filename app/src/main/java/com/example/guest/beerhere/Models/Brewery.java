@@ -20,6 +20,7 @@ public class Brewery {
      String city;
      String state;
      String closed;
+    String index;
     private String pushId;
 
     public Brewery() {}
@@ -39,6 +40,7 @@ public class Brewery {
         this.city = city;
         this.state = state;
         this.closed = closed;
+        this.index = "not_specified";
     }
 
     public String getName() {
@@ -83,6 +85,14 @@ public class Brewery {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 
 

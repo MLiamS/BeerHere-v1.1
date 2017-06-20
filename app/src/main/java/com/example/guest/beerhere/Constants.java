@@ -15,5 +15,6 @@ public class Constants {
     public static final String FIREBASE_CHILD_SEARCHED_LOCATION = "searchedLocation";
     public static final String FIREBASE_CHILD_BREWERIES = "breweries";
     public static final String EURL = "https://www.epicodus.com/";
+    public static final String FIREBASE_QUERY_INDEX = "index";
 
 }
