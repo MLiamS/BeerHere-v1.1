@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/backgroundImage"
-        android:src="@drawable/main_background"
+        android:src="@drawable/main_background_lan"
         android:scaleType="fitXY"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -23,7 +23,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:background="@drawable/aboutbutton"
-        android:textColor="@color/colorPrimary"
         android:elevation="40dp"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
@@ -33,11 +32,10 @@
 
     <Button
         android:id="@+id/bioButton"
-        android:textColor="@color/colorPrimary"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:background="@drawable/biobutton"
-        android:elevation="40dp"
+        android:elevation="0dp"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
@@ -45,23 +43,22 @@
         android:text="Bio"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignBottom="@+id/aboutButton" />
 
     <Button
         android:id="@+id/findBeerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Find Nearby Beer"
-        android:textColor="@color/colorPrimary"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/aboutButton"
-        android:layout_alignStart="@+id/aboutButton" />
+        android:layout_above="@+id/savedBreweriesButton"
+        android:layout_alignLeft="@+id/savedBreweriesButton"
+        android:layout_alignStart="@+id/savedBreweriesButton" />
     <Button
         android:id="@+id/savedBreweriesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Saved Breweries"
-        android:textColor="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/bioButton"
         android:layout_alignEnd="@+id/bioButton" />
@@ -74,25 +71,23 @@
         android:textSize="80sp"
         android:textStyle="bold"
         android:textAlignment="center"
-        android:layout_marginTop="48dp"
-        android:layout_below="@+id/aboutButton"
-        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <EditText
         android:id="@+id/editTextLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/colorTextIcons"
         android:hint="Enter Zip Code"
-        android:textColorHint="@color/colorPrimary"
-        android:textAlignment="center"
-        android:background="@android:color/transparent"
         android:ems="10"
         android:inputType="number"
-        android:layout_marginTop="79dp"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="26dp" />
 
 
 </RelativeLayout>
