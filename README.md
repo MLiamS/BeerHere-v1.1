@@ -20,9 +20,11 @@ Navigate to the file with Android Studio and run the MainActivity on a AVD.
 
 
 ### Next Steps
-* Move the about and bio buttons into one Fragment.
-* Query the breweriesDB api
-* Kinda feel out where this little app is headed.
+* Utilize location services to find users location
+* Use lat and long to find nearest brewery.
+* Implement users ability to check in at certain breweries.
+* Display where users are to located to other users for potential meet-ups.
+* Add ability for users to 'like' certain breweries/brewery inventory.
 
 ### Contact
 
