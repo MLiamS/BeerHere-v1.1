@@ -9,6 +9,7 @@ import com.example.guest.beerhere.BuildConfig;
 public class Constants {
     public static final String API_KEY = BuildConfig.API_KEY;
     public static final String API_BASE_URL = "http://api.brewerydb.com/v2/locations?";
+    public static final String GEOAPI_BASE_URL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
     public static final String YOUR_QUERY_PARAMETER = "postalCode";
     public static final String API_KEY_QUERY_PARAMETER = "key";
     public static final String PREFERENCES_LOCATION_KEY = "location";
@@ -16,5 +17,6 @@ public class Constants {
     public static final String FIREBASE_CHILD_BREWERIES = "breweries";
     public static final String EURL = "https://www.epicodus.com/";
     public static final String FIREBASE_QUERY_INDEX = "index";
+    public static final String GEO_API_KEY = "AIzaSyAyKzHPPzeaA5kg8IRB_r4b-2e5SgGAUCw";
 
 }

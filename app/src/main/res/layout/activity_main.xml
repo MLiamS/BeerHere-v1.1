@@ -94,5 +94,14 @@
         android:layout_below="@+id/title"
         android:layout_centerHorizontal="true" />
 
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/aboutButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="TextView" />
+
 
 </RelativeLayout>

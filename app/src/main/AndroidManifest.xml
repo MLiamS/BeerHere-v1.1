@@ -3,6 +3,8 @@
     package="com.example.guest.beerhere">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,19 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity"></activity>
+        <activity android:name=".ui.MainActivity" />
         <activity android:name=".ui.AboutActivity" />
         <activity android:name=".ui.FindBeer" />
         <activity android:name=".ui.Bio" />
-        <activity android:name=".ui.BreweryDetailActivity" android:theme="@style/AppTheme.NoActionBar" />
-
+        <activity
+            android:name=".ui.BreweryDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.SavedBreweryListActivity" />
         <activity android:name=".ui.CreateAccountActivity" />
-        <activity android:name=".ui.LoginActivity"><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".ui.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".services.GoogleAPIService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
